@@ -19,9 +19,10 @@ public class SportController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response crearJugadorBasico() {
+    public Response crearJugadorBasico(JugadorBasico jugador) {
         // Ocupas directamente tu clase Jugador con su constructor de 3 parámetros
-        Jugador jugador = new Jugador(12, "Cristiano", LocalDate.now());
+        IO.println("El jugador es: %s".formatted(jugador.nombre()));
+        jugadores.add(jugador);
         return Response.status(Response.Status.CREATED).entity(jugador).build();
     }
 }
